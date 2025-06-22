@@ -1,10 +1,10 @@
 {
-    "name": "your-username-here/project-name-here",
+    "name": "h1h3/project-name-here",
     "type": "project",
     "authors": [
         {
-            "name": "your-username-here",
-            "email": "your-email-here@gmail.com"
+            "name": "Boris Dela Cruz",
+            "email": "202311499@fit.edu.ph"
         }
     ],
     "scripts": {

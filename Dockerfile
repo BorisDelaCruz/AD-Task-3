@@ -8,7 +8,7 @@ WORKDIR /var/www/html
 
 RUN apk add --no-cache git unzip autoconf make g++ icu-dev libzip-dev zlib-dev postgresql-dev libpq
 RUN docker-php-ext-install pgsql pdo_pgsql intl zip
-RUN pecl install mongodb 
+RUN pecl install mongodb
 RUN docker-php-ext-enable mongodb
 
 COPY --from=composer:2.6 /usr/bin/composer /usr/local/bin/composer
