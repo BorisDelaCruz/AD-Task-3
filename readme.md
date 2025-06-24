@@ -104,7 +104,7 @@ Description of the project in details.
 10. File Structure to follow below.
 
 ```
-AD-ProjectName
+AD-Task-3
 └─ assets
 |   └─ css
 |   |   └─ name.css
@@ -117,11 +117,13 @@ AD-ProjectName
 |   └─ templates
 |      └─ name.component.php
 └─ handlers
-|   └─ name.handler.php
-└─ layout
-|   └─ name.layout.php
+|   └─ example.handler.php
+|   └─ mongodbChecker.handler.php
+|   └─ postgreChecker.handler.php
+└─ layouts
+|   └─ example.layout.php
 └─ pages
-|  └─ pageName
+|  └─ examplepage
 |     └─ assets
 |     |  └─ css
 |     |  |  └─ name.css
@@ -130,11 +132,27 @@ AD-ProjectName
 |     |  └─ js
 |     |     └─ name.js
 |     └─ index.php
-└─ staticData
-|  └─ name.staticdata.php
+└─sql
+  └─ new table auto increment script.sql
+  └─ old table auto increments.sql
+└─ staticDatas
+|  └─ example.staticdata.php
 └─ utils
-|   └─ name.utils.php
+|   └─ example.util.php
+|   └─ htmlescape.util.php
 └─ vendor
+|    └─ composer
+|    |      └─ autoload_classmap.php
+|    |      └─ autoload_namespaces.php
+|    |      └─ autoload_psr4.php
+|    |      └─ autoload_real.php
+|    |      └─ autoload_static.php
+|    |      └─ ClassLoader.php
+|    |      └─ installed.json
+|    |      └─ installed.php
+|    |      └─ installedVersions.php
+|    |      └─ LICENSE
+|    └─ autoload.php
 └─ .gitignore
 └─ bootstrap.php
 └─ composer.json
