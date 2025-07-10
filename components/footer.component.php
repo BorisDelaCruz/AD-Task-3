@@ -2,41 +2,29 @@
 $config = require_once __DIR__ . '/../staticDatas/appConfig.staticData.php';
 ?>
 
-<footer class="bg-dark text-light py-4 mt-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <h5><?= htmlspecialchars($config['app']['name']) ?></h5>
-                <p class="mb-0"><?= htmlspecialchars($config['app']['description']) ?></p>
-                <small class="text-muted">Version <?= htmlspecialchars($config['app']['version']) ?></small>
+<footer style="background-color: #333; color: white; padding: 20px; margin-top: 20px;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 250px; margin-bottom: 20px;">
+                <h5 style="margin: 0 0 10px 0;"><?= htmlspecialchars($config['app']['name']) ?></h5>
+                <p style="margin: 0 0 5px 0;"><?= htmlspecialchars($config['app']['description']) ?></p>
+                <small style="color: #ccc;">Version <?= htmlspecialchars($config['app']['version']) ?></small>
             </div>
-            <div class="col-md-6 text-md-end">
-                <p class="mb-0">
-                    <i class="fas fa-code"></i>
+            <div style="flex: 1; min-width: 250px; text-align: right;">
+                <p style="margin: 0 0 5px 0;">
                     Developed by <?= htmlspecialchars($config['app']['author']) ?>
                 </p>
-                <small class="text-muted">
+                <small style="color: #ccc;">
                     &copy; <?= date('Y') ?> All rights reserved.
                 </small>
             </div>
         </div>
-        <hr class="my-3">
-        <div class="row">
-            <div class="col-12 text-center">
-                <div class="d-flex justify-content-center align-items-center">
-                    <span class="me-3">
-                        <i class="fas fa-database text-success"></i>
-                        PostgreSQL
-                    </span>
-                    <span class="me-3">
-                        <i class="fab fa-php text-primary"></i>
-                        PHP <?= PHP_VERSION ?>
-                    </span>
-                    <span>
-                        <i class="fab fa-bootstrap text-info"></i>
-                        Bootstrap 5
-                    </span>
-                </div>
+        <hr style="margin: 20px 0; border-color: #555;">
+        <div style="text-align: center;">
+            <div style="display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap;">
+                <span>PostgreSQL</span>
+                <span>PHP <?= PHP_VERSION ?></span>
+                <span>Docker</span>
             </div>
         </div>
     </div>
