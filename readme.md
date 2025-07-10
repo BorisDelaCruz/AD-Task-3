@@ -133,8 +133,8 @@ AD-Task-3
 |     |     └─ name.js
 |     └─ index.php
 └─sql
-  └─ new table auto increment script.sql
-  └─ old table auto increments.sql
+|  └─ new table auto increment script.sql
+|  └─ old table auto increments.sql
 └─ staticDatas
 |  └─ example.staticdata.php
 └─ utils
