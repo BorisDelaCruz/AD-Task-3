@@ -2,13 +2,18 @@
 require_once __DIR__ . '/../../utils/auth.util.php';
 require_once __DIR__ . '/../../utils/envSetter.util.php';
 
+// Start session for flash messages
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
 // Redirect if already logged in
 if (Auth::isLoggedIn()) {
     header('Location: /pages/dashboard/');
     exit;
 }
 
-// Handle form submission
+// Handle direct form submission (fallback)
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = trim($_POST['username'] ?? '');
     $password = $_POST['password'] ?? '';
@@ -63,51 +68,101 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html>
 <head>
     <title>Sign Up - AD-Task-3</title>
+    <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
     <h1>Sign Up</h1>
     
+    <!-- Error/Success messages from server -->
     <?php if (isset($error)): ?>
-        <p style="color: red;"><?= htmlspecialchars($error) ?></p>
+        <div class="error"><?= htmlspecialchars($error) ?></div>
     <?php endif; ?>
     
     <?php if (isset($success)): ?>
-        <p style="color: green;"><?= htmlspecialchars($success) ?></p>
+        <div class="success">
+            <?= htmlspecialchars($success) ?>
+            <br><a href="/pages/login/">Click here to login</a>
+        </div>
     <?php endif; ?>
     
-    <form method="POST">
-        <p>
-            <label>Username:</label><br>
-            <input type="text" name="username" value="<?= htmlspecialchars($_POST['username'] ?? '') ?>" required>
-        </p>
+    <!-- Message container for AJAX responses -->
+    <div id="message-container"></div>
+    
+    <form method="POST" action="" id="signupForm">
+        <div class="form-group">
+            <label for="username">Username <span class="required">*</span>:</label>
+            <input 
+                type="text" 
+                id="username" 
+                name="username" 
+                value="<?= htmlspecialchars($_POST['username'] ?? '') ?>" 
+                required 
+                autocomplete="username"
+                placeholder="Choose a unique username"
+            >
+        </div>
         
-        <p>
-            <label>Password:</label><br>
-            <input type="password" name="password" required>
-        </p>
+        <div class="form-group">
+            <label for="password">Password <span class="required">*</span>:</label>
+            <input 
+                type="password" 
+                id="password" 
+                name="password" 
+                required 
+                autocomplete="new-password"
+                placeholder="Choose a strong password"
+            >
+        </div>
         
-        <p>
-            <label>First Name:</label><br>
-            <input type="text" name="first_name" value="<?= htmlspecialchars($_POST['first_name'] ?? '') ?>" required>
-        </p>
+        <div class="form-group">
+            <label for="first_name">First Name <span class="required">*</span>:</label>
+            <input 
+                type="text" 
+                id="first_name" 
+                name="first_name" 
+                value="<?= htmlspecialchars($_POST['first_name'] ?? '') ?>" 
+                required 
+                autocomplete="given-name"
+                placeholder="Your first name"
+            >
+        </div>
         
-        <p>
-            <label>Middle Name (optional):</label><br>
-            <input type="text" name="middle_name" value="<?= htmlspecialchars($_POST['middle_name'] ?? '') ?>">
-        </p>
+        <div class="form-group">
+            <label for="middle_name">Middle Name (optional):</label>
+            <input 
+                type="text" 
+                id="middle_name" 
+                name="middle_name" 
+                value="<?= htmlspecialchars($_POST['middle_name'] ?? '') ?>" 
+                autocomplete="additional-name"
+                placeholder="Your middle name (optional)"
+            >
+        </div>
         
-        <p>
-            <label>Last Name:</label><br>
-            <input type="text" name="last_name" value="<?= htmlspecialchars($_POST['last_name'] ?? '') ?>" required>
-        </p>
+        <div class="form-group">
+            <label for="last_name">Last Name <span class="required">*</span>:</label>
+            <input 
+                type="text" 
+                id="last_name" 
+                name="last_name" 
+                value="<?= htmlspecialchars($_POST['last_name'] ?? '') ?>" 
+                required 
+                autocomplete="family-name"
+                placeholder="Your last name"
+            >
+        </div>
         
-        <p>
-            <button type="submit">Sign Up</button>
-        </p>
+        <button type="submit" id="signupBtn">
+            <span class="btn-text">Sign Up</span>
+            <span class="loading" id="loadingText">Creating account...</span>
+        </button>
     </form>
     
-    <p><a href="/pages/login/"><button>Already have an account? Login</button></a></p>
-    <p><a href="/"><button>Back to Home</button></a></p>
+    <div class="links">
+        <a href="/pages/login/">Already have an account? Login</a> |
+        <a href="/">Back to Home</a>
+    </div>
     
+    <script src="assets/script.js"></script>
 </body>
 </html>

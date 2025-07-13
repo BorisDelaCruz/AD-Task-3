@@ -11,15 +11,21 @@ $user = Auth::getUser();
 <html>
 <head>
     <title>Dashboard - AD-Task-3</title>
+    <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-    <h1>Dashboard</h1>
-    <p>Welcome, <?= htmlspecialchars(Auth::getUserFullName()) ?>!</p>
-    <p>Your role: <?= htmlspecialchars($user['role']) ?></p>
+    <div class="welcome-section">
+        <h1>Dashboard</h1>
+        <p>Welcome, <?= htmlspecialchars(Auth::getUserFullName()) ?>!</p>
+        <p>Your role: <?= htmlspecialchars($user['role']) ?></p>
+    </div>
     
-    <h2>Quick Actions</h2>
-    <p><a href="/pages/logout/"><button>Logout</button></a></p>
-    <p><a href="/"><button>Back to Home</button></a></p>
+    <div class="actions-section">
+        <h2>Quick Actions</h2>
+        <p><a href="/pages/logout/"><button>Logout</button></a></p>
+        <p><a href="/"><button>Back to Home</button></a></p>
+    </div>
     
+    <script src="assets/script.js"></script>
 </body>
 </html>
