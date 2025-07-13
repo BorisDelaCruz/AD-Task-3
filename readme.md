@@ -109,38 +109,66 @@ AD-Task-3 is a Project Management System built with PHP that integrates both Pos
 AD-Task-3
 └─ assets
 |   └─ css
-|   |   └─ name.css
+|   |   └─ style.css
 |   └─ img
-|   |   └─ name.jpeg/.jpg/.webp/.png
+|   |   └─ nyebe_white.png
 |   └─ js
-|       └─ name.js
+|       └─ script.js
 └─ components
-|   └─ name.component.php
+|   └─ alert.component.php
+|   └─ footer.component.php
+|   └─ header.component.php
 |   └─ templates
-|      └─ name.component.php
+|      └─ dashboard.component.php
 └─ handlers
-|   └─ example.handler.php
+|   └─ auth.handler.php
 |   └─ mongodbChecker.handler.php
 |   └─ postgreChecker.handler.php
 └─ layouts
-|   └─ example.layout.php
+|   └─ main.layout.php
+|   └─ style.css
 └─ pages
-|  └─ examplepage
+|  └─ dashboard
+|  |  └─ assets
+|  |  |  └─ style.css
+|  |  |  └─ script.js
+|  |  └─ index.php
+|  └─ ExamplePage
+|  |  └─ assets
+|  |  |  └─ css
+|  |  |  |  └─ style.css
+|  |  |  └─ img
+|  |  |  |  └─ nyebe_white.png
+|  |  |  └─ js
+|  |  |     └─ script.js
+|  |  └─ index.php
+|  └─ login
+|  |  └─ assets
+|  |  |  └─ style.css
+|  |  |  └─ script.js
+|  |  └─ index.php
+|  └─ logout
+|  |  └─ assets
+|  |  |  └─ style.css
+|  |  |  └─ script.js
+|  |  └─ index.php
+|  └─ signup
 |     └─ assets
-|     |  └─ css
-|     |  |  └─ name.css
-|     |  └─ img
-|     |  |  └─ name.jpeg/.jpg/.webp/.png
-|     |  └─ js
-|     |     └─ name.js
+|     |  └─ style.css
+|     |  └─ script.js
 |     └─ index.php
-└─sql
-|  └─ new table auto increment script.sql
-|  └─ old table auto increments.sql
+└─ sql
+|  └─ database.sql
+|  └─ migrate.sql
+|  └─ resetdb.sql
+|  └─ seed.sql
 └─ staticDatas
-|  └─ example.staticdata.php
+|  └─ appConfig.staticData.php
+|  └─ databaseConnection.staticData.php
+|  └─ users.staticData.php
 └─ utils
-|   └─ example.util.php
+|   └─ auth.util.php
+|   └─ envSetter.util.php
 |   └─ htmlescape.util.php
 └─ vendor
 |    └─ composer
