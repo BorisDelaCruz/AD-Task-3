@@ -50,6 +50,14 @@ switch ($uri) {
         require BASE_PATH . '/handlers/auth.handler.php';
         break;
         
+    case '/handlers/loginLogout.handler.php':
+        require BASE_PATH . '/handlers/loginLogout.handler.php';
+        break;
+        
+    case '/handlers/auth.controller.php':
+        require BASE_PATH . '/handlers/auth.controller.php';
+        break;
+        
     case '/handlers/dashboard.handler.php':
         require BASE_PATH . '/handlers/dashboard.handler.php';
         break;
