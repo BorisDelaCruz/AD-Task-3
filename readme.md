@@ -60,7 +60,9 @@
 <!-- TODO: To be changed -->
 <!-- The following are just sample -->
 
-Description of the project in details.
+Project Overview:
+
+AD-Task-3 is a Project Management System built with PHP that integrates both PostgreSQL and MongoDB databases. It provides authentication, user management, and project tracking capabilities
 
 ### Key Components
 
