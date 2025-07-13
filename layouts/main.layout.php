@@ -10,59 +10,11 @@ function renderLayout(string $title, string $content, array $additionalCss = [],
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title><?= htmlspecialchars($title) ?> - <?= htmlspecialchars($config['app']['name']) ?></title>
+        <link rel="stylesheet" href="/layouts/style.css">
         
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                margin: 0;
-                padding: 0;
-                min-height: 100vh;
-                display: flex;
-                flex-direction: column;
-            }
-            
-            main {
-                flex: 1;
-                padding: 20px;
-            }
-            
-            .container {
-                max-width: 1200px;
-                margin: 0 auto;
-                padding: 0 20px;
-            }
-            
-            .alert {
-                padding: 15px;
-                margin-bottom: 20px;
-                border: 1px solid transparent;
-                border-radius: 4px;
-            }
-            
-            .alert-success {
-                color: #3c763d;
-                background-color: #dff0d8;
-                border-color: #d6e9c6;
-            }
-            
-            .alert-danger {
-                color: #a94442;
-                background-color: #f2dede;
-                border-color: #ebccd1;
-            }
-            
-            .alert-info {
-                color: #31708f;
-                background-color: #d9edf7;
-                border-color: #bce8f1;
-            }
-            
-            .alert-warning {
-                color: #8a6d3b;
-                background-color: #fcf8e3;
-                border-color: #faebcc;
-            }
-        </style>
+        <?php foreach ($additionalCss as $css): ?>
+            <link rel="stylesheet" href="<?= htmlspecialchars($css) ?>">
+        <?php endforeach; ?>
     </head>
     <body>
         <!-- Header -->
@@ -83,10 +35,10 @@ function renderLayout(string $title, string $content, array $additionalCss = [],
         
         <!-- Footer -->
         <?php include __DIR__ . '/../components/footer.component.php'; ?>
-    </body>
-    </html>
-            $(document).ajaxError(function(event, jqXHR, ajaxSettings, thrownError) {
-                console.error('AJAX Error:', thrownError);
+        
+        <?php foreach ($additionalJs as $js): ?>
+            <script src="<?= htmlspecialchars($js) ?>"></script>
+        <?php endforeach; ?>
     </body>
     </html>
     <?php
